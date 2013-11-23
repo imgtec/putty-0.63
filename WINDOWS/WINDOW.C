@@ -3914,6 +3914,7 @@ static int TranslateKey(UINT message, WPARAM wParam, LPARAM lParam,
     int funky_type = conf_get_int(conf, CONF_funky_type);
     int no_applic_k = conf_get_int(conf, CONF_no_applic_k);
     int ctrlaltkeys = conf_get_int(conf, CONF_ctrlaltkeys);
+    int altgrkey = conf_get_int(conf, CONF_altgrkey);
     int nethack_keypad = conf_get_int(conf, CONF_nethack_keypad);
 
     HKL kbd_layout = GetKeyboardLayout(0);
