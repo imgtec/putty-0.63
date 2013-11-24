@@ -4002,11 +4002,12 @@ static int TranslateKey(UINT message, WPARAM wParam, LPARAM lParam,
 	}
 #endif
 
+	if (altgrkey == 0){
+		keystate[VK_RMENU] = 0;
+	} else
 	if (wParam == VK_MENU && (HIWORD(lParam) & KF_EXTENDED)) {
 	    keystate[VK_RMENU] = keystate[VK_MENU];
 	}
-	
-	keystate[VK_RMENU] = 0;
 
 
 	/* Nastyness with NUMLock - Shift-NUMLock is left alone though */
