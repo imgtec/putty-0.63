@@ -517,6 +517,7 @@ void save_open_settings(void *sesskey, Conf *conf)
     write_setting_i(sesskey, "AltOnly", conf_get_int(conf, CONF_alt_only));
     write_setting_i(sesskey, "ComposeKey", conf_get_int(conf, CONF_compose_key));
     write_setting_i(sesskey, "CtrlAltKeys", conf_get_int(conf, CONF_ctrlaltkeys));
+    write_setting_i(sesskey, "AltGrKey", conf_get_int(conf, CONF_altgrkey));
     write_setting_i(sesskey, "TelnetKey", conf_get_int(conf, CONF_telnet_keyboard));
     write_setting_i(sesskey, "TelnetRet", conf_get_int(conf, CONF_telnet_newline));
     write_setting_i(sesskey, "LocalEcho", conf_get_int(conf, CONF_localecho));
@@ -810,6 +811,7 @@ void load_open_settings(void *sesskey, Conf *conf)
     gppi(sesskey, "AltOnly", 0, conf, CONF_alt_only);
     gppi(sesskey, "ComposeKey", 0, conf, CONF_compose_key);
     gppi(sesskey, "CtrlAltKeys", 1, conf, CONF_ctrlaltkeys);
+    gppi(sesskey, "AltGrKey", 0, conf, CONF_altgrkey);
     gppi(sesskey, "TelnetKey", 0, conf, CONF_telnet_keyboard);
     gppi(sesskey, "TelnetRet", 1, conf, CONF_telnet_newline);
     gppi(sesskey, "LocalEcho", AUTO, conf, CONF_localecho);
@@ -972,11 +974,11 @@ void load_open_settings(void *sesskey, Conf *conf)
     gppfont(sesskey, "WideBoldFont", conf, CONF_wideboldfont);
     gppi(sesskey, "ShadowBoldOffset", 1, conf, CONF_shadowboldoffset);
     gpps(sesskey, "SerialLine", "", conf, CONF_serline);
-    gppi(sesskey, "SerialSpeed", 9600, conf, CONF_serspeed);
+    gppi(sesskey, "SerialSpeed", 115200, conf, CONF_serspeed);
     gppi(sesskey, "SerialDataBits", 8, conf, CONF_serdatabits);
     gppi(sesskey, "SerialStopHalfbits", 2, conf, CONF_serstopbits);
     gppi(sesskey, "SerialParity", SER_PAR_NONE, conf, CONF_serparity);
-    gppi(sesskey, "SerialFlowControl", SER_FLOW_XONXOFF, conf, CONF_serflow);
+    gppi(sesskey, "SerialFlowControl", SER_FLOW_NONE, conf, CONF_serflow);
     gpps(sesskey, "WindowClass", "", conf, CONF_winclass);
 }
 
